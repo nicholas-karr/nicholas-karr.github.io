@@ -1,0 +1,30 @@
+a {
+    all: unset;
+    cursor: pointer;
+}
+
+.underline {
+    text-decoration: underline;
+    position: relative;
+    display: inline-block;
+}
+
+// Sidebar resource sizing
+.videoInsert {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: inline-block;
+}
+
+// Spacing for left and right sections
+header {
+    width: 30% !important;
+}
+section {
+    width: 60% !important;
+}
+
+.wrapper {
+    width: unset !important;
+}

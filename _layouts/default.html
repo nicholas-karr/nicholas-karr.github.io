@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+{% seo %}
+
+    <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
+    <link rel="stylesheet" href="{{'/assets/css/custom.css' | absolute_url}}">
+
+    <script src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.6.0/js/all.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.6.0/css/fontawesome.min.css" rel="stylesheet">
+
+    <link rel="icon" href="{{ site.favicon }}" type="image/png" sizes="32x32">
+    <link rel="apple-touch-icon" href="{{ site.favicon }}" sizes="32x32">
+
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1><a href="{{ "/" | absolute_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>
+
+        {% if site.logo %}
+          <img src="{{site.logo | relative_url}}" alt="Logo" />
+        {% endif %}
+
+        <p>{{ site.description | default: site.github.project_tagline }}</p>
+
+        <div class="p">
+          <a onclick="clickMail()">
+            <i class="fa-solid fa-envelope"></i>
+            <div class="underline">nick​@karrmedia.com</div>
+          </a>
+          <br />
+          <a href="https://github.com/nicholas-karr">
+            <i class="fa-brands fa-github"></i>
+            <div class="underline">github.com/nicholas-karr</div>
+          </a>
+        </div>
+
+        <br>
+
+        <div id="chessbots-visual">
+          <img src="https://karrmedia.com/assets/chess-1.jpg" class="videoInsert">
+        </div>
+
+        <div id="sargon-visual">
+          <video autoplay loop muted controls class="videoInsert">
+            <source src="https://karrmedia.com/assets/sargon-1.mp4" type="video/mp4">
+          </video>
+        </div>
+      </header>
+      <section>
+
+      {{ content }}
+
+      </section>
+      <footer>
+
+      </footer>
+    </div>
+    <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
+
+    <script>
+      function clickMail() {
+        var mail = document.createElement("a");
+        // This part wasn't on Stack Overflow
+        mail.href = `mailto:n${1 ? "i" : "j"}ck@karr${""}media.com`;
+        mail.click();
+      }
+
+      // https://stackoverflow.com/a/5354536
+      function checkVisible(elm) {
+        var rect = elm.getBoundingClientRect();
+        var viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
+        return !(rect.bottom < 0 || rect.top - viewHeight >= 0);
+      }
+
+      // Appear on the sidebar as the user scrolls down
+      // Objects are [Element that needs to be visible, element to reveal]
+      const visualElements = [
+        [ document.getElementById("chessbots"), document.getElementById("chessbots-visual") ],
+        [ document.getElementById("sargon"), document.getElementById("sargon-visual") ]
+      ];
+
+      for (let i = 0; i < visualElements.length; i++) {
+        visualElements[i][1].style.display = 'none';
+      }
+
+      let currentlyVisible = visualElements[1];
+      const onscroll = () => {
+        for (const i in visualElements) {
+          const [elm, visual] = visualElements[i];
+          if (checkVisible(elm)) {
+            if (currentlyVisible && currentlyVisible != elm) {
+              currentlyVisible.style = currentlyVisible.style ? currentlyVisible.style : {};
+              currentlyVisible.style.display = 'none';
+            }
+            
+            currentlyVisible = visual;
+            currentlyVisible.style.display = 'inline';
+
+            return;
+          }
+        }
+
+        // There were none visible, hide all
+        if (currentlyVisible) {
+          currentlyVisible.style = currentlyVisible.style ? currentlyVisible.style : {};
+          currentlyVisible.style.display = 'none';
+          currentlyVisible = null;
+        }
+      }
+      document.addEventListener("scroll", onscroll);
+      onscroll();
+    </script>
+
+  </body>
+</html>

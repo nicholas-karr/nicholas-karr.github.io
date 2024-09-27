@@ -1,0 +1,17 @@
+title: Nicholas Karr
+description: Embedded Engineer
+favicon: /assets/img/cpu.svg
+
+theme: jekyll-theme-minimal
+plugins:
+  - jekyll-include-cache
+  - jekyll-seo-tag
+  - jekyll-include-cache
+
+encoding: utf-8
+lang: en-US
+repository: "nicholas-karr/nicholas-karr.github.io"
+
+exclude:
+- README.md
+- LICENSE
