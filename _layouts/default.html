@@ -23,13 +23,13 @@
   <body>
     <div class="wrapper">
       <header>
-        <h1><a href="{{ "/" | absolute_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>
+        <h1 id="side-name"><a href="{{ "/" | absolute_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>
+
+        <p id="side-desc">{{ site.description | default: site.github.project_tagline }}</p>
 
         {% if site.logo %}
           <img src="{{site.logo | relative_url}}" alt="Logo" />
         {% endif %}
-
-        <p>{{ site.description | default: site.github.project_tagline }}</p>
 
         <div class="p">
           <a onclick="clickMail()">
@@ -45,14 +45,16 @@
 
         <br>
 
-        <div id="chessbots-visual">
-          <img src="https://karrmedia.com/assets/chess-1.jpg" class="videoInsert">
-        </div>
+        <div id="sidebar-asset">
+          <div id="chessbots-visual">
+            <img src="https://karrmedia.com/assets/chess-1.jpg" class="videoInsert">
+          </div>
 
-        <div id="sargon-visual">
-          <video autoplay loop muted controls class="videoInsert">
-            <source src="https://karrmedia.com/assets/sargon-1.mp4" type="video/mp4">
-          </video>
+          <div id="sargon-visual">
+            <video autoplay loop muted controls class="videoInsert">
+              <source src="https://karrmedia.com/assets/sargon-1.mp4" type="video/mp4">
+            </video>
+          </div>
         </div>
       </header>
       <section>
@@ -84,8 +86,8 @@
       // Appear on the sidebar as the user scrolls down
       // Objects are [Element that needs to be visible, element to reveal]
       const visualElements = [
-        [ document.getElementById("chessbots"), document.getElementById("chessbots-visual") ],
-        [ document.getElementById("sargon"), document.getElementById("sargon-visual") ]
+        [ document.getElementById("chessbots-detector"), document.getElementById("chessbots-visual") ],
+        [ document.getElementById("sargon-detector"), document.getElementById("sargon-visual") ]
       ];
 
       for (let i = 0; i < visualElements.length; i++) {

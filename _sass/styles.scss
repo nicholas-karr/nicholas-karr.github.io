@@ -9,7 +9,7 @@ a {
     display: inline-block;
 }
 
-// Sidebar resource sizing
+// Asset sizing
 .videoInsert {
     width: 100%;
     height: 100%;
@@ -17,15 +17,58 @@ a {
     display: inline-block;
 }
 
-// Spacing for left and right sections
-header {
-    width: 25vw !important;
-}
-section {
-    width: 60vw !important;
-    margin-right: 1vw !important;
+.inline-asset {
+    display: none;
 }
 
-.wrapper {
-    width: unset !important;
+
+@media screen and (max-width: 768px) {
+    #sidebar-asset {
+        // No sidebar media on mobile
+        display: none !important;
+    }
+
+    #sargon {
+        // They get an inline version of the video
+        display: block !important;
+    }
+
+    #side-desc {
+        display: none !important;
+    }
+    #main-name {
+        display: none !important;
+    }
+    .mobile-hidden {
+        display: none !important;
+    }
+
+    section {
+        border-width: 0px !important;
+        padding: 0 0 !important;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    // Spacing for left and right sections
+    header {
+        width: 25vw !important;
+    }
+    section {
+        width: 60vw !important;
+        margin-right: 1vw !important;
+    }
+
+    .wrapper {
+        width: unset !important;
+    }
+}
+
+@font-face {
+    font-family: "JetBrainsMono";
+    src: url("/assets/fonts/JetBrainsMono-Regular.woff2");
+}
+
+body {
+    font-family: "JetBrainsMono", "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
 }
