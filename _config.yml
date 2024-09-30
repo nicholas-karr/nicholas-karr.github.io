@@ -15,3 +15,5 @@ repository: "nicholas-karr/nicholas-karr.github.io"
 exclude:
 - README.md
 - LICENSE
+- Gemfile
+- Gemfile.lock
