@@ -13,7 +13,9 @@ layout: default
 - We are building a fleet of 32 waist-height robots that mirror games of chess on a massive board
 - I am responsible for hardware programming and part selections. Each robot has a custom PCB, an ESP32, brushed motor controllers, and a variety of basic components to allow them to interact with the field
 - Over-the-air updates, sensor feeds, and motor control have been implemented. Robots discover updates through HTTP, and each other through DNS and MDNS
-- To communicate with a central computer, the robots use the network protocol I finally coalesced to newline-separated JSON over TCP. It just can't be beaten for interoperability between disparate teams or reliability
+- During this project, I have experienced the full spectrum of bringing up hardware. I've had to investigate failures of digital and analog components with an oscilloscope, measure power usage with a programmable supply, trace faulty connections with a multimeter, and observe WiFi characteristics with a spectrum monitor
+- I have simulated multiple subassemblies using LTSpice to understand their behavior better, then verified them on breadboards in the lab with an oscilloscope
+- To communicate with a central computer, the robots use the network protocol I finally settled on: newline-separated JSON over TCP. It just can't be beaten for interoperability between disparate teams or reliability
 
 <div id="chessbots-detector"></div>
 
