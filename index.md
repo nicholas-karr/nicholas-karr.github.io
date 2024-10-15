@@ -19,6 +19,15 @@ layout: default
 
 <div id="chessbots-detector"></div>
 
+### [<u>PicOS</u> (Summer 2023)](https://github.com/nicholas-karr/PicOS)
+- Built a novel windowed text renderer for the Raspberry Pi Pico
+- Runs on custom hardware that implements user input and VGA digital-to-analog conversion
+- Correctly calculates window occlusion and sizing
+- Simulates a text-based instance of Snake on a core, then renders it a scanline at a time to a displays
+- Uses hand-optimized assembly to minimize memory access through vectorization
+
+<div id="picos-detector"></div>
+
 ### [<u>Screen Rotation Utility</u> (Fall 2024)](https://github.com/nicholas-karr/MonitorRotationMemory)
 - Applies monitor rotations programmatically to correct an oversight in the Windows 11 multiscreen implementation where rotations are not automatically managed in the same way as resolution and location
 - Through heavy use of Win32, it collects lists of monitor names and imposes a state onto them from a config file generated at the user's request
