@@ -20,11 +20,12 @@ layout: default
 <div id="chessbots-detector"></div>
 
 ### [<u>PicOS</u> (Summer 2023)](https://github.com/nicholas-karr/PicOS)
-- Built a novel windowed text renderer for the Raspberry Pi Pico
-- Runs on custom hardware that implements user input and VGA digital-to-analog conversion
-- Correctly calculates window occlusion and sizing
-- Simulates a text-based instance of Snake on a core, then renders it a scanline at a time to a displays
-- Uses hand-optimized assembly to minimize memory access through vectorization
+- I built a novel windowed text renderer for the Raspberry Pi Pico
+- It runs on my custom-designed hardware, which uses an inexpensive resistor DAC to generate VGA signals
+- User input through 3 face buttons and a serial terminal has been implemented
+- Correctly calculates window occlusion, sizing, and placement of text within them
+- Simulates a text-based instance of Snake on a core, then renders it a scanline at a time to a display on the other core
+- Exploits hand-optimized assembly to minimize memory access through vectorization, allowing scanlines to be rendered within the strict required timings
 
 <div id="picos-detector"></div>
 
